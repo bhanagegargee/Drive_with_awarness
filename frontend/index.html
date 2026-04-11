@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Driver Safety System</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <link rel="stylesheet" href="/frontend/style.css">
+</head>
+<body>
+    <main class="app-shell">
+        <section class="panel">
+            <div>
+                <p class="eyebrow">MVP</p>
+                <h1>Smart Driver Safety System</h1>
+                <p class="intro">
+                    Compare route alternatives, flag accident-prone segments, and follow the driver's live position.
+                </p>
+            </div>
+
+            <form id="route-form" class="route-form">
+                <label>
+                    Source
+                    <select id="source" required>
+                        <option value="Anand Nagar">Anand Nagar</option>
+                        <option value="Baner">Baner</option>
+                        <option value="Hadapsar">Hadapsar</option>
+                        <option value="Hinjawadi">Hinjawadi</option>
+                        <option value="Katraj">Katraj</option>
+                        <option value="Kothrud">Kothrud</option>
+                        <option value="Magarpatta">Magarpatta</option>
+                        <option value="Pune Station">Pune Station</option>
+                        <option value="Shivajinagar">Shivajinagar</option>
+                        <option value="Sinhgad Road">Sinhgad Road</option>
+                        <option value="Swargate" selected>Swargate</option>
+                        <option value="Wakad">Wakad</option>
+                    </select>
+                </label>
+                <label>
+                    Destination
+                    <select id="destination" required>
+                        <option value="Anand Nagar">Anand Nagar</option>
+                        <option value="Baner">Baner</option>
+                        <option value="Hadapsar">Hadapsar</option>
+                        <option value="Hinjawadi" selected>Hinjawadi</option>
+                        <option value="Katraj">Katraj</option>
+                        <option value="Kothrud">Kothrud</option>
+                        <option value="Magarpatta">Magarpatta</option>
+                        <option value="Pune Station">Pune Station</option>
+                        <option value="Shivajinagar">Shivajinagar</option>
+                        <option value="Sinhgad Road">Sinhgad Road</option>
+                        <option value="Swargate">Swargate</option>
+                        <option value="Wakad">Wakad</option>
+                    </select>
+                </label>
+                <button id="submit-btn" type="submit">Find Routes</button>
+            </form>
+<!--
+            <div class="helper-card">
+                <strong>Supported MVP places</strong>
+                <p>Anand Nagar, Baner, Hadapsar, Hinjawadi, Katraj, Kothrud, Magarpatta, Pune Station, Shivajinagar, Sinhgad Road, Swargate, Wakad</p>
+                <p>Hotspots monitored: Navale Bridge / Narhe Selfie Point and Katraj Chowk.</p>
+            </div>-->
+
+            <div id="status" class="status">Ready to analyze routes.</div>
+
+            <section class="legend">
+                <h2>Legend</h2>
+                <div class="legend-item"><span class="swatch red"></span> RED: High-risk route</div>
+                <div class="legend-item"><span class="swatch orange"></span> ORANGE: Medium-risk route</div>
+                <div class="legend-item"><span class="swatch blue"></span> BLUE: Lower-risk route</div>
+                <div class="legend-item"><span class="swatch zone"></span> Accident-prone zone on selected route</div>
+                <div class="legend-item"><span class="swatch live"></span> Live driver location</div>
+            </section>
+
+            <section>
+                <h2>Available Routes</h2>
+                <div id="route-list" class="route-list"></div>
+            </section>
+        </section>
+
+        <section class="map-panel">
+            <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open amenities menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <aside id="sidebar" class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Nearby Amenities</h2>
+                    <button id="sidebar-close" class="sidebar-close" type="button" aria-label="Close menu">×</button>
+                </div>
+                <p class="sidebar-copy">Find essential places around your live location and route safely to them.</p>
+                <button class="sidebar-item" type="button" data-type="hospital">Hospitals</button>
+                <button class="sidebar-item" type="button" data-type="police">Police Stations</button>
+                <button class="sidebar-item" type="button" data-type="hotel">Hotels</button>
+                <button class="sidebar-item" type="button" data-type="pharmacy">Medical Stores</button>
+            </aside>
+
+            <div id="map"></div>
+            <section class="amenity-results">
+                <div class="amenity-results-header">
+                    <h2>Nearby Amenity Results</h2>
+                    <p id="amenity-summary" class="amenity-summary">Choose a category from the menu to view nearby places.</p>
+                </div>
+                <div id="amenity-list" class="amenity-list"></div>
+            </section>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="/frontend/script.js"></script>
+</body>
+</html>
