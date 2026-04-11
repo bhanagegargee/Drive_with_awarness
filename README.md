@@ -1,3 +1,4 @@
+
 # Smart Driver Safety System
 
 A full-stack MVP web application that helps drivers choose safer routes and quickly find nearby essential amenities.
@@ -322,3 +323,7 @@ Possible reasons:
 ## License
 
 This project is currently for educational and MVP demonstration purposes.
+=======
+# Drive_with_awarness
+this project help's in reducing the increasing life loss due to accidents by highlighting accident prone areas in users route to aware them  while driving in such areas its main aim is based upon "precaution is better than cure".
+>>>>>>> 86f1af09b0751556f3b6181ab74f2e12a4bc794a
